@@ -728,7 +728,8 @@ class GPUModelRunnerBase(ModelRunnerBase[TModelInputForGPU]):
                                    cache_config=self.cache_config)
 
         self.model_memory_usage = m.consumed_memory
-        logger.info("Loading model weights took %.4f GB",
+        from simple_colors import green
+        logger.info(green("Loading model weights took %.4f GB", 'bold'),
                     self.model_memory_usage / float(2**30))
 
         if self.lora_config:
